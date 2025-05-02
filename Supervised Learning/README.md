@@ -36,3 +36,26 @@ progressed one year after the baseline. So, the goal is to find the linear combi
 that best predicts the diabetes progression in the next year. To replicate my results, simply
 use the same diabetes dataset, and use a step size of 0.005.
 
+3: Logistic Regression:
+The logistic regression algorithm is a single neuron model, used for the purpose of binary
+classification, just like the perceptron. The difference is that instead of predicting which
+class a given instance falls into, it predicts a probability that the instance falls into a class.
+This works by using the sigmoid function instead of the sign function as the activation function.
+This choice of function is good for this application because for very negative values of z, the
+prediction is asymptotically 0, for very positive values of z, the prediction is asymptotically 1,
+and for z values near 0, a smooth transition from 0 to 1 occurs. The algorithm employs stochastic
+gradient descent, just like in linear regression. To make things easier, the algorithm uses the
+cross entropy loss function, which is the logarithm of the sum of the predicted probabilities. This
+is because we want to be as close as possible to certain about the labels. Using these functions
+allows the gradient to be the same as with the perceptron, just the prediction error multiplied
+by the feature vector. Now, at each epoch we calculate the gradient with respect to one data point
+at a time. I used the same data set as the perceptron, the breast cancer dataset from scikit learn.
+This was so that these two approaches to binary classification could be directly compared. This
+algorithm and dataset was very sensitive to step size, and to replicate my results use a step size
+of 0.000005 over 10000 epochs. Also, I was experiencing errors with the sigmoid and loss function.
+It is extremely computationally expensive to calculate sigmoid(z) for |z| large enough. So, I forced
+|z| to be less than 100, which sacrifices only minimal accuracy. Also, to avoid the undefined ln(0),
+I capped z out at 0.9999999, and 0.0000001.
+
+4:
+
