@@ -57,5 +57,29 @@ It is extremely computationally expensive to calculate sigmoid(z) for |z| large 
 |z| to be less than 100, which sacrifices only minimal accuracy. Also, to avoid the undefined ln(0),
 I capped z out at 0.9999999, and 0.0000001.
 
-4:
+4: Neural Network:
+The neural network algorithm is the first model that is composed of a connected web of neurons. The
+network is structured with a series of layers. It works as follows: There is an input layer, which 
+has a node for every feature. This feeds into one or more hidden layers, which can have any number
+of nodes, but should be chosen to be comparable in size to the input and output layer. The hidden
+layers feed into the next hidden layer, and the last hidden layer feeds into the output layer,
+which represents the target vector space. As in the logistic regression, the sigmoid activation
+function is used. Also, mean squared error is used as the cost function, as we want to minimize
+the deviation of prediction vectors to target vectors. With the structure of the neural network
+defined, it works by having weight and bias matrices for each inner layer, and by stochastic
+gradient descent, iteratively updating the weight and bias matrices to minimize mean squared error.
+For this implementation, a data set of japanese hiragana was used. It consists of 70,000 handwritten
+hiragana characters, 10,000 of which are randomly separated into a testing set, distinct from the
+training set. The images are 28x28 pixels and grayscale. There are just 10 unique characters in the
+entire dataset, to ensure that there are plenty of instances of each character to train on. So, with
+this data, there are 28*28 = 784 features, so the input layer must have 784 nodes. And because there
+are a total of 10 possible characters, the output layer has 10 nodes. To reproduce my results, use a
+learning rate of 0.05, and 100 epochs, which takes about 15 minutes to complete training.
+I tried 5 potential network architectures. They wre (60, 60), (150, 150), (200, 80), (50, 30), and
+(40, 40, 40), with the last one being the only one with 3 hidden layers. I noticed erratic oscillations
+for the last one, so I used a learning rate of 0.01. This makes it a little harder to compare directly
+to the other architectures.
+
+5: K Nearest Neighbors:
+
 
