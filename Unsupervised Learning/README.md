@@ -31,3 +31,13 @@ implementation, the wine dataset was again used. The same results can be achieve
 tht code.
 
 4: Singular Value Decomposition Image Compression:
+In Singular Value Decomposition for Image Compression, the goal is to reduce the amount of storage
+to an acceptable amount while still retaining as much of the important features of the image as
+possible. Singular value decomposition for image decompression works by expressing the full image
+of pixel data by only the most important singular vectors. This way, the matrix of pixel data no
+longer has to be full rank, and carries less information while retaining as much of the key features
+as possible. For this example, I used the fashion_mnist dataset, which was previously used in the 
+k_nearest neighbors implementation. This dataset contains grayscale 28x28 pixel images of clothing.
+Through singular value decomposition, the entire matrix of pixel information can be summarized in
+as little as 5 singular vectors while still retaining most of what makes it identifiable. To replicate
+my result, test the very first image from the set, which is a primarily light colored ankle boot.
