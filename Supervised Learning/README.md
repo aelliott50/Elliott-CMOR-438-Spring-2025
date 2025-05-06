@@ -114,5 +114,8 @@ which is a quantitative measure of the strength of the concrete. This makes it a
 a regression. To replicate the results, use random state 39 and 40% to test when splitting the data, and
 use random state 12 when instantiating regressors. 
 
+7: Random Forests:
+
+
 
 
