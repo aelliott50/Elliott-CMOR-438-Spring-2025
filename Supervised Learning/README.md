@@ -81,5 +81,19 @@ for the last one, so I used a learning rate of 0.01. This makes it a little hard
 to the other architectures.
 
 5: K Nearest Neighbors:
+The K nearest neighbors algorithm is the simplest nonparametric model. It works by considering just
+the Euclidean distance between feature vectors. Specifically, when applying the algorithm to some point,
+we find the Euclidean distance between it and all training feature vectors, and select the k smallest
+ones. This algorithm can be used in a regression, where our prediction is just the mean of the target
+values of these k vectors, or it can be used in a classification, where our prediction is the class
+that appears the most often among the targets of the k points. In this case, the data set is the 
+fashion_mnist dataset from tensorflow. It is a collection of 70,000 grayscale images that fall into
+ten different categories of clothing items. The images are stored as 28x28 pixel data. 60,000 of the
+instances are artificially separated as training instances, and the other 10,000 are for testing.
+For the implementation, only 7,000 of the images were used to keep computations more manageable.
+To replicate the results, simply slice one tenth of the data set, which importantly is not sorted
+by class, and iterate over all the feature vectors in the test set, where for each instance we find
+the k nearest neighbors from the training set, and predict the mode of their targets.
+
 
 
