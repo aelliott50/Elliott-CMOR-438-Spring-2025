@@ -95,5 +95,24 @@ To replicate the results, simply slice one tenth of the data set, which importan
 by class, and iterate over all the feature vectors in the test set, where for each instance we find
 the k nearest neighbors from the training set, and predict the mode of their targets.
 
+6: Decision Trees/Regression Trees:
+The Decision Trees algorithm is another nonparametric model. It works by iteratively making linear
+partitions of the data, so that each partition accumulates, giving a kind of piecewise linear
+decision border. At each iteration, the partition that separates the most points of different classes
+is chosen. This branching border can be represented in a tree, where each node is a partition, and the
+leaf nodes are the target predictions. In the case of a classification problem, the leaf nodes are
+classifications, and it is called a decision tree, and in the case of a regression, the leaf nodes
+are predictions for the target variable, where the prediction is typically an average of the target
+values of the training instances that fall into that leaf. For the Decision Tree, the scikit learn
+breast cancer dataset was used once more. To get the same results, you must use random state 39 with 
+40 percent of the data for training when splitting the data into train and test data. This was chosen
+because other options had unnatural distributions leading them to not be interesting. For the
+instantiation of the decision tree, use random state 42. For the RegressionTree, the cement data
+set was used, which is version 7 of the 'Concrete Compressive Strength' from scikit learn. This
+data set uses 8 feature variables related to the composition of the cement, and a target variable,
+which is a quantitative measure of the strength of the concrete. This makes it a good candidate for
+a regression. To replicate the results, use random state 39 and 40% to test when splitting the data, and
+use random state 12 when instantiating regressors. 
+
 
 
