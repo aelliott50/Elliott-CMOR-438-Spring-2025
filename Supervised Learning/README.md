@@ -130,7 +130,22 @@ of all the predictions. In order to replicate the results I got, split 30% of th
 data, using random state 42. Also, use random state 42 when training the deep tree, which needs
 to have a max depth of 14 (or higher). 
 
-8: Other Ensemble Methods (Boosting):
+8: Gradient Boosting:
+Gradient Boosting is an ensemble method, which again  means that it utilizes the fact that the mean
+of many different estimates from different estimators will be closer to the mean than any one estimator.
+More broadly, boosting involves initializing estimators sequentially, so that each subsequent estimator
+compensates for the errors accumulated by the past estimators. For gradient boosting in particular,
+this works by equating the ith estimator to the estimator before it plus residual error. This way,
+our target value, y, can be estimated by summing each of the sequential estimators, as well as the 
+residual from the final estimator. The benefit is that instead of summing a residual for every single
+estimator =, we only have one residual term, which will be smaller. For this regression, I used the 
+cement data, the same one used in the Regression Trees implementation. It is a good data set for a
+regression, as each feature is a continuous value representing some aspect of the cement composition.
+Also, the target is a continuous value representing the strength of the concrete. To replicate my
+results, use random state 42, with a max depth of 3 and a learning rate of 0.2 for the gradient
+boosting regressor. In fact, using any other max depth besides 3 causes significant
+performance issues. Learning rate is alos very sensitive in this case, and 0.2 is near optimal.
+
 
 
 
