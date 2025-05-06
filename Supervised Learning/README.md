@@ -115,7 +115,22 @@ a regression. To replicate the results, use random state 39 and 40% to test when
 use random state 12 when instantiating regressors. 
 
 7: Random Forests:
+The Random Forests algorithm is an ensemble method. This means that its underlying principle is that
+the mean of a large number of inaccurate estimators is very likely to be close to the true mean.
+So, to make use of this fact, a random forest defines a random set of estimators, which are shallow
+decision trees, and trains them via bootstrapping, so that each model is as uncorrelated as possible.
+This works by having each split only consider subsets of the data and subsets of the features. The
+benefit of having uncorrelated estimators is that their mean is mathematically much more likely
+to be near the true mean. For this implementation, I used the digits dataset from scikit learn,
+which is a set of 1,797 grayscale 8x8 images, with pixel data stored in an 8x8 matrix. So, the 
+classification task is to classify a matrix of pixel information as the numerical digit it represents.
+As a side note, random forests can also be tasked with regression, with the difference being that
+instead of choosing the most popularly predicted class as the prediction, we predict the mean
+of all the predictions. In order to replicate the results I got, split 30% of the data as test
+data, using random state 42. Also, use random state 42 when training the deep tree, which needs
+to have a max depth of 14 (or higher). 
 
+8: Other Ensemble Methods (Boosting):
 
 
 
